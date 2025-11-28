@@ -29,7 +29,13 @@ public static class GamesEndpoints
     // group builder -> defines common things across all the endpoints, so we don't have to define over and over!
 
     // all the specific endpoints within this builder will start with the prefix passed in.
-    var group = app.MapGroup("games");
+
+    // the appropriate endpoint filters will be applied and 
+    // will be recognized by these data annotations specified
+    // in the DTO.
+    
+    var group = app.MapGroup("games")
+                .WithParameterValidation();
 
     // GET /games
     group.MapGet("/", () => games);
@@ -46,6 +52,8 @@ public static class GamesEndpoints
     // POST /games
     group.MapPost("/", (CreateGameDto newGame) =>
     {
+      // proper validation -> data anotations
+
       GameDto game = new(
         games.Count + 1,
         newGame.Name,

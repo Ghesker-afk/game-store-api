@@ -8,7 +8,6 @@ POST http://localhost:5299/games
 Content-Type: application/json
 
 {
-  "name": "Minecraft",
   "genre": "Kids and Family",
   "price": 19.99,
   "releaseDate": "2011-11-18"
@@ -22,7 +21,7 @@ Content-Type: application/json
   "id": 1,
   "name": "Street Fighter II Turbo",
   "genre": "Fighting",
-  "price": 9.99,
+  "price": 19.99,
   "releaseDate": "1991-02-01"
 }
 
