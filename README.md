@@ -20,36 +20,38 @@ A **Game Store API** é uma aplicação desenvolvida com **.NET 8+, ASP.NET Core
 GameStore.Api/    
 ├─ Data/ 
 │ └─ Migrations  
-├─ Data/DataExtension.cs
-├─ Data/GameStoreContext.cs
+├─ Data/DataExtension.cs  
+├─ Data/GameStoreContext.cs  
 ├─ Endpoints/  
 │ ├─ GamesEndpoints.cs  
 │ └─ GenresEndpoints.cs  
-├─ Data/GameStoreContext.cs  
 ├─ Entities/  
 │ ├─ Game.cs  
 │ └─ Genre.cs  
 ├─ Dtos/  
 │ ├─ CreateGameDto.cs  
-│ ├─ GenreDto.cs  
+│ ├─ GenreDto.cs   
 │ ├─ UpdateGameDto.cs  
 │ ├─ GameSummaryDto.cs  
 │ └─ GameDetailsDto.cs  
 ├─ Mapping/ 
-│ ├─ GameMapping.cs 
-│ └─ GenreMapping.cs 
-├─ Program.cs  
-├─ games.http
-├─ genres.http  
+│ ├─ GameMapping.cs   
+│ └─ GenreMapping.cs   
+├─ Program.cs    
+├─ games.http  
+├─ genres.http    
 └─ appsettings.json  
 
 # 📌 Endpoints da API
 
 A Game Store API é dividida em dois grupos principais de endpoints:  
+  
 /games  
 /genres  
 
 
+
+  
 ## 🎮 Endpoints de Games (`/games`)
 
 ##  GET /games
