@@ -1,73 +1,122 @@
-A API foi desenvolvida com:
+# 🎮 Game Store API
 
-.NET 8+
-ASP.NET Core Minimal APIs
-Entity Framework Core
-DTOs (Data Transfer Objects)
-Métodos de extensão para mapeamento entre entidades e DTOs
+A **Game Store API** é uma aplicação desenvolvida com **.NET 8+, ASP.NET Core Minimal APIs** e **Entity Framework Core**, oferecendo endpoints para gerenciamento de jogos, gêneros e demais recursos relacionados a uma loja de jogos.  
+Este documento reúne **toda a documentação completa** da API, incluindo tecnologias, modelos, DTOs, endpoints, exemplos e instruções de execução — tudo em um único arquivo.
 
-Os endpoints da aplicação estão organizados em dois grupos principais:
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- .NET 8+
+- ASP.NET Core Minimal APIs
+- Entity Framework Core
+- DTOs (Data Transfer Objects)
+- Métodos de extensão para mapeamento (`ToEntity()`, `ToDto()`, `ToGameSummaryDto()`, etc.)
+- Agrupamento de rotas com `MapGroup`
+
+---
+
+## 📁 Estrutura Geral do Projeto (exemplo)
+
+GameStore.Api/
+├─ Endpoints/
+│ ├─ GamesEndpoints.cs
+│ └─ GenresEndpoints.cs
+├─ Data/GameStoreContext.cs
+├─ Entities/
+│ ├─ Game.cs
+│ └─ Genre.cs
+├─ Dtos/
+│ ├─ CreateGameDto.cs
+│ ├─ UpdateGameDto.cs
+│ ├─ GameSummaryDto.cs
+│ └─ GameDetailsDto.cs
+├─ Mapping/MappingExtensions.cs
+├─ Program.cs
+└─ appsettings.json
+
+# 📌 Endpoints da API
+
+A Game Store API é dividida em dois grupos principais de endpoints:
 /games
 /genres
 
-Cada grupo contém operações específicas relacionadas ao domínio tratado.
-Abaixo está uma documentação completa e centralizada desses recursos.
+ 🎮 Endpoints de Games (`/games`)
 
+##  GET /games
+Retorna uma lista resumida de todos os jogos cadastrados.
 
-GET /games
-Retorna uma lista contendo o resumo de todos os jogos cadastrados.
-O resultado inclui dados essenciais, como nome, preço e gênero.
+### ✔ Exemplo de resposta (200 OK)
+```json
+[
+  {
+    "id": 1,
+    "name": "Hades",
+    "genre": "Action",
+    "price": 79.9
+  },
+  {
+    "id": 2,
+    "name": "The Witcher 3",
+    "genre": "RPG",
+    "price": 199.9
+  }
+]
 
-GET /games/{id}
-Busca um jogo específico utilizando seu ID.
-Caso o jogo exista, a API retorna o DTO de detalhes contendo todos os dados relevantes.
-Se o jogo não for encontrado, é retornado 404 Not Found.
+##  GET /games/{id}
+Retorna os detalhes completos de um jogo.
 
-POST /games
-Cria um novo registro de jogo no banco de dados.
+### ✔ Exemplo de resposta (200 OK)
+```
+{
+  "id": 7,
+  "name": "Hollow Knight",
+  "description": "Metroidvania atmosférico",
+  "genre": {
+    "id": 3,
+    "name": "Metroidvania"
+  },
+  "price": 49.9,
+  "releaseDate": "2017-02-24"
+}
 
-PUT /games/{id}
-Atualiza os dados de um jogo existente.
-Primeiro, a API tenta localizar o jogo pelo ID.
-Caso não exista, retorna 404 Not Found.
+## POST /games
+Cria um novo jogo no sistema.
 
-DELETE /games/{id}
+### ✔ Exemplo de resposta (201 CREATED)
+```
+{
+  "name": "Hollow Knight",
+  "description": "Metroidvania atmosférico",
+  "genreId": 3,
+  "price": 49.9,
+  "releaseDate": "2017-02-24"
+}
+
+## PUT /games/{id}
+Atualiza totalmente um jogo existente.
+
+## ✔ Exemplo de resposta (204 NO CONTENT)
+```
+{
+  "name": "Hollow Knight (Updated)",
+  "description": "Descrição atualizada",
+  "genreId": 3,
+  "price": 59.9,
+  "releaseDate": "2017-02-24"
+}
+
+## DELETE /games/{id}
 Remove um jogo pelo ID.
 
 
-GET /genres
-Retorna todos os gêneros cadastrados na base.
+## GET /genres
+Retorna todos os gêneros cadastrados.
+```
+[
+  { "id": 1, "name": "Fighting" },
+  { "id": 2, "name": "Roleplaying" },
+  { "id": 3, "name": "Sports" }
+...
+]
 
-Resumo Técnico da Arquitetura
-A API foi projetada com boas práticas de organização, separação de responsabilidades e uso de padrões modernos da plataforma .NET.
-
-
-
-
-Como Rodar o Projeto
-
-Certifique-se de ter o .NET SDK instalado.
-
-Clone o repositório:
-
-git clone <repo-url>
-
-
-Navegue até o projeto:
-
-cd GameStore.Api
-
-
-Execute as migrations, se houver:
-
-dotnet ef database update
-
-
-Rode o servidor:
-
-dotnet run
-
-
-A API estará disponível em:
-
-https://localhost:<porta>/
