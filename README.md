@@ -1,7 +1,6 @@
 # 🎮 Game Store API
 
-A **Game Store API** é uma aplicação desenvolvida com **.NET 8+, ASP.NET Core Minimal APIs** e **Entity Framework Core**, oferecendo endpoints para gerenciamento de jogos, gêneros e demais recursos relacionados a uma loja de jogos.  
-Este documento reúne **toda a documentação completa** da API, incluindo tecnologias, modelos, DTOs, endpoints, exemplos e instruções de execução — tudo em um único arquivo.
+A **Game Store API** é uma aplicação desenvolvida com **.NET 8+, ASP.NET Core Minimal APIs** e **Entity Framework Core**, oferecendo endpoints para gerenciamento de jogos, gêneros e demais recursos relacionados a uma loja de jogos. 
 
 ---
 
@@ -18,28 +17,28 @@ Este documento reúne **toda a documentação completa** da API, incluindo tecno
 
 ## 📁 Estrutura Geral do Projeto (exemplo)
 
-GameStore.Api/
-├─ Endpoints/
-│ ├─ GamesEndpoints.cs
-│ └─ GenresEndpoints.cs
-├─ Data/GameStoreContext.cs
-├─ Entities/
-│ ├─ Game.cs
-│ └─ Genre.cs
-├─ Dtos/
-│ ├─ CreateGameDto.cs
-│ ├─ UpdateGameDto.cs
-│ ├─ GameSummaryDto.cs
-│ └─ GameDetailsDto.cs
-├─ Mapping/MappingExtensions.cs
-├─ Program.cs
-└─ appsettings.json
+GameStore.Api/  
+├─ Endpoints/  
+│ ├─ GamesEndpoints.cs  
+│ └─ GenresEndpoints.cs  
+├─ Data/GameStoreContext.cs  
+├─ Entities/  
+│ ├─ Game.cs  
+│ └─ Genre.cs  
+├─ Dtos/  
+│ ├─ CreateGameDto.cs  
+│ ├─ UpdateGameDto.cs  
+│ ├─ GameSummaryDto.cs  
+│ └─ GameDetailsDto.cs  
+├─ Mapping/MappingExtensions.cs  
+├─ Program.cs  
+└─ appsettings.json  
 
 # 📌 Endpoints da API
 
-A Game Store API é dividida em dois grupos principais de endpoints:
-/games
-/genres
+A Game Store API é dividida em dois grupos principais de endpoints:  
+/games  
+/genres  
 
  🎮 Endpoints de Games (`/games`)
 
@@ -62,12 +61,13 @@ Retorna uma lista resumida de todos os jogos cadastrados.
     "price": 199.9
   }
 ]
+```json
 
 ##  GET /games/{id}
 Retorna os detalhes completos de um jogo.
 
 ### ✔ Exemplo de resposta (200 OK)
-```
+```json
 {
   "id": 7,
   "name": "Hollow Knight",
@@ -79,12 +79,13 @@ Retorna os detalhes completos de um jogo.
   "price": 49.9,
   "releaseDate": "2017-02-24"
 }
+```json
 
 ## POST /games
 Cria um novo jogo no sistema.
 
 ### ✔ Exemplo de resposta (201 CREATED)
-```
+```json
 {
   "name": "Hollow Knight",
   "description": "Metroidvania atmosférico",
@@ -92,12 +93,13 @@ Cria um novo jogo no sistema.
   "price": 49.9,
   "releaseDate": "2017-02-24"
 }
+```json
 
 ## PUT /games/{id}
 Atualiza totalmente um jogo existente.
 
 ## ✔ Exemplo de resposta (204 NO CONTENT)
-```
+```json
 {
   "name": "Hollow Knight (Updated)",
   "description": "Descrição atualizada",
@@ -105,6 +107,7 @@ Atualiza totalmente um jogo existente.
   "price": 59.9,
   "releaseDate": "2017-02-24"
 }
+```json
 
 ## DELETE /games/{id}
 Remove um jogo pelo ID.
@@ -112,11 +115,11 @@ Remove um jogo pelo ID.
 
 ## GET /genres
 Retorna todos os gêneros cadastrados.
-```
+```json
 [
   { "id": 1, "name": "Fighting" },
   { "id": 2, "name": "Roleplaying" },
   { "id": 3, "name": "Sports" }
 ...
 ]
-
+```json
