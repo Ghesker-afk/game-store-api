@@ -61,7 +61,7 @@ Retorna uma lista resumida de todos os jogos cadastrados.
     "price": 199.9
   }
 ]
-```json
+```
 
 ##  GET /games/{id}
 Retorna os detalhes completos de um jogo.
@@ -79,7 +79,7 @@ Retorna os detalhes completos de um jogo.
   "price": 49.9,
   "releaseDate": "2017-02-24"
 }
-```json
+```
 
 ## POST /games
 Cria um novo jogo no sistema.
@@ -93,7 +93,7 @@ Cria um novo jogo no sistema.
   "price": 49.9,
   "releaseDate": "2017-02-24"
 }
-```json
+```
 
 ## PUT /games/{id}
 Atualiza totalmente um jogo existente.
@@ -107,7 +107,7 @@ Atualiza totalmente um jogo existente.
   "price": 59.9,
   "releaseDate": "2017-02-24"
 }
-```json
+```
 
 ## DELETE /games/{id}
 Remove um jogo pelo ID.
@@ -122,4 +122,4 @@ Retorna todos os gêneros cadastrados.
   { "id": 3, "name": "Sports" }
 ...
 ]
-```json
+```
