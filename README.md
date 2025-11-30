@@ -15,7 +15,7 @@ A **Game Store API** é uma aplicação desenvolvida com **.NET 8+, ASP.NET Core
 
 ---
 
-## 📁 Estrutura Geral do Projeto (exemplo)
+## 📁 Estrutura Geral do Projeto
 
 GameStore.Api/    
 ├─ Data/   
