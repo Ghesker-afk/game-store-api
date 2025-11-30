@@ -18,8 +18,8 @@ A **Game Store API** é uma aplicação desenvolvida com **.NET 8+, ASP.NET Core
 ## 📁 Estrutura Geral do Projeto (exemplo)
 
 GameStore.Api/    
-├─ Data/ 
-│ └─ Migrations  
+├─ Data/   
+│ └─ Migrations    
 ├─ Data/DataExtension.cs  
 ├─ Data/GameStoreContext.cs  
 ├─ Endpoints/  
@@ -34,7 +34,7 @@ GameStore.Api/
 │ ├─ UpdateGameDto.cs  
 │ ├─ GameSummaryDto.cs  
 │ └─ GameDetailsDto.cs  
-├─ Mapping/ 
+├─ Mapping/   
 │ ├─ GameMapping.cs   
 │ └─ GenreMapping.cs   
 ├─ Program.cs    
